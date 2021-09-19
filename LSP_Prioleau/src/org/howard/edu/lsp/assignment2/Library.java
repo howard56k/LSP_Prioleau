@@ -1,34 +1,45 @@
 package org.howard.edu.lsp.assignment2;
 import java.util.ArrayList;
 
-public class Library { 
-	// Add the missing implementation (methods and data definitions) to this class 
+public class Library {
+	/**
+	 * Creates a library object that has addbook, printopeninghours, printaddress,borrowBook,printAvailableBooks, returnbook
+	 * Allows to store Book objects and go through them
+	 */
 	private String address;
 	private String openHours = "9am to 5pm";
 	private ArrayList<Book> bookCatalog = new ArrayList<Book>();
-	// Constructor – look it up
 	public Library(String title) {
-		// Implement the constructor
 		address = title;
-		
 	}
 	
 	public void addBook(Book title) {
-		//Adds book to catalog from the book argument passed
+		/**
+		 * Adds book to catalog from the book argument passed
+		 */
 		bookCatalog.add(title);
 	}
 	
 	public void printOpeningHours() {
-		//Prints the opening hours from the string variable openHours
+		/**
+		 * Prints the opening hours from the string variable openHours
+		 */
 		System.out.println("Libraries are open daily from " + openHours + ".");
 	}
 	
 	public void printAddress() {
-		//Prints the address from the string variable address
+		/**
+		 * Prints the address from the string variable address
+		 */
 		System.out.println(address);
 	}
 	
 	public void borrowBook(String Title) {
+		/**
+		 * Allows you to input a title of a book
+		 * Then searches for the title in the library and if it is found
+		 * It will check it out to the user and if not will return that book is not found
+		 */
 		boolean isFound = false;
 		for (int i = 0; i < bookCatalog.size(); i++) {
 			//CHECKS IF THE BOOK inputed matches the one in the library
@@ -53,6 +64,9 @@ public class Library {
 	}
 	
 	public void printAvailableBooks() {
+		/**
+		 * Goes through library list and print the list of available books
+		 */
 		if (bookCatalog.size() == 0){
 			System.out.println("No book in catalog ");
 		}else {
@@ -66,6 +80,9 @@ public class Library {
 		}
 	}
 	public void returnBook(String Title) {
+		/**
+		 * Pass a book title and allows you to return the book to the library
+		 */
 		for (int i = 0; i < bookCatalog.size(); i++) {
 			//CHECKS IF THE BOOK inputed matches the one in the library
 		      if (bookCatalog.get(i).getTitle().equals(Title)) {
