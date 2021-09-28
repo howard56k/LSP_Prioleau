@@ -1,5 +1,7 @@
 package org.howard.edu.lsp.assignment3.implementation;
 import java.util.ArrayList;
+
+
 /**
  * Creates a IntergerSet object that is based on a Arraylist
  * @author Howard P
@@ -9,9 +11,11 @@ public class IntegerSet{
 	// Hint: probably best to use an array list.  You will need to do a little research
 	private ArrayList<Integer> set = new ArrayList<Integer>();
 
-	// Default Constructor
+
+	/**
+	 * Default Constructor
+	 */
 	public void Set() {
-		
 	}
 
 	/**
@@ -177,14 +181,18 @@ public class IntegerSet{
 	 * Creates a new set from the difference of both objects
 	 * 
 	 * @param intSetb is a IntergerSet object you want to be difference with the set
+	 * @throws IntegerSetException 
 	 */
-	public void diff(IntegerSet intSetb){
+	public void diff(IntegerSet intSetb) throws IntegerSetException{
 		ArrayList<Integer> set2 = new ArrayList<Integer>();
 		for (int i = 0; i < set.size(); i++) {
 			if(!(intSetb.contains(set.get(i)))){
 				set2.add(set.get(i));
+			} else {
+				intSetb.remove(set.get(i));
 			}
 		}
+		set2.addAll(intSetb.getArrayList());
 		set = set2;
 	}
 	
@@ -202,7 +210,7 @@ public class IntegerSet{
 	 * 
 	 * @return boolean whether the set is empty or not
 	 */
-	boolean isEmpty() {
+	public boolean isEmpty() {
 		if (set.size() == 0) {
 			return true;
 		}
@@ -219,21 +227,20 @@ public class IntegerSet{
 	 */
 	public String toString(){
 		// return String representation of your set
-		String setString = " ";
+		String setString = "[ ";
 		for (int i = 0; i < set.size() - 1 ; i++) {
 			setString += String.valueOf(set.get(i)) + " , ";
 		}
-		setString += String.valueOf(set.get((set.size() - 1)));
-		return setString;
+		if (set.size() == 0) {
+			return "Set is Empty";
+		}
+		else {
+			return setString += String.valueOf(set.get((set.size() - 1))) + " ]";
+		}
+		
 		
 	}
 
 }
 
-public class IntegerSetException extends Exception {  
-	private static final long serialVersionUID = 7035980445904148530L;
-	public IntegerSetException() {}
-	public IntegerSetException(String errorMessage) {  
-		super(errorMessage);  
-    }  
-}  
+
