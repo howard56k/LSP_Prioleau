@@ -1,51 +1,59 @@
 package org.howard.edu.lsp.assignment2;
 
+/**
+ * is a book object from title
+ * Book object contains methods borrowed, returned, isborrowed and getTitle
+ * 
+ * @author Howard P
+ * @version 3.0
+ */
 public class Book {
-	/**
-	 * Creates a book object from title
-	 * Book object contains borrwed, returned, isborrowed and getTitle
-	 */
 	private String title; 
 	private boolean borrowed; 
-
-	// Creates a new Book 
+	
+	/**
+	 * Creates a book object
+	 * 
+	 * @param bookTitle is a string object that contains the book's title
+	 */
 	public Book(String bookTitle) { 
-		/**
-		 * Sets the Book title to the string passed 
-		 */
 		title = bookTitle;
 	} 
 	
+	/**
+	 * Marks the book as rented 
+	 * 
+	 * Changes the boolean borrowed to true to mean its borrowed 
+	 * 
+	 */
 	public void borrowed() { 
-		/**
-		 * Marks the book as rented 
-		 * Changes the boolean borrowed to true to mean its borrowed 
-		 */
 		borrowed = true;
 	} 
 	
-
+	/**
+	 * Marks the book as not rented
+	 * 
+	 * Changes the boolean borrowed to false to mean its returned 
+	 */
 	public void returned() { 
-		/**
-		 * Marks the book as not rented
-		 * Changes the boolean borrowed to false to mean its returned 
-		 */
 		borrowed = false;
 	} 
 	
+	/**
+	 * Returns true if the book is rented, false otherwise public
+	 *  
+	 * @return the status of the book from the boolean borrowed 
+	 */
 	public boolean isBorrowed() { 
-		/**
-		 * Returns true if the book is rented, false otherwise public 
-		 * Returns the status of the book from the boolean borrowed 
-		 */
 		return borrowed;
 	} 
-
+	
+	/**
+	 * Returns the title of the book public 
+	 * 
+	 * @return the title of the book from the string title 
+	 */
 	public String getTitle() { 
-		/**
-		 * Returns the title of the book public 
-		 * Returns the title of the book from the string title 
-		 */
 		return title;
 	}
 }

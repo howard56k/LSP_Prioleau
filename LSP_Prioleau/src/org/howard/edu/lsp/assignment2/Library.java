@@ -1,45 +1,60 @@
 package org.howard.edu.lsp.assignment2;
 import java.util.ArrayList;
 
+
+/**
+ * is a library object that has addbook, printopeninghours, printaddress,borrowBook,printAvailableBooks, returnbook
+ * Allows to store Book objects and go through them
+ * 
+ * @author Howard P
+ * @version 3.0
+ */
 public class Library {
-	/**
-	 * Creates a library object that has addbook, printopeninghours, printaddress,borrowBook,printAvailableBooks, returnbook
-	 * Allows to store Book objects and go through them
-	 */
 	private String address;
 	private String openHours = "9am to 5pm";
 	private ArrayList<Book> bookCatalog = new ArrayList<Book>();
+	
+	/**
+	 * Creates a library object
+	 * 
+	 * @param title is a string object that contains the libraries address
+	 */
 	public Library(String title) {
 		address = title;
 	}
 	
+	/**
+	 * Adds book to catalog from the book argument passed
+	 * 
+	 * @param title takes a book object
+	 */
 	public void addBook(Book title) {
-		/**
-		 * Adds book to catalog from the book argument passed
-		 */
 		bookCatalog.add(title);
 	}
 	
+	/**
+	 * Prints the opening hours from the string variable openHours
+	 */
 	public void printOpeningHours() {
-		/**
-		 * Prints the opening hours from the string variable openHours
-		 */
 		System.out.println("Libraries are open daily from " + openHours + ".");
 	}
 	
+	/**
+	 * Prints the address from the string variable address
+	 */
 	public void printAddress() {
-		/**
-		 * Prints the address from the string variable address
-		 */
 		System.out.println(address);
 	}
 	
+	/**
+	 * Allows you to input a title of a book and borrow it
+	 * 
+	 * searches for the title in the library and if it is found
+	 * It will check it out to the user and if not will return that book is not found
+	 * 
+	 *@param title is a string object of the books title
+	 */
 	public void borrowBook(String Title) {
-		/**
-		 * Allows you to input a title of a book
-		 * Then searches for the title in the library and if it is found
-		 * It will check it out to the user and if not will return that book is not found
-		 */
 		boolean isFound = false;
 		for (int i = 0; i < bookCatalog.size(); i++) {
 			//CHECKS IF THE BOOK inputed matches the one in the library
@@ -63,10 +78,10 @@ public class Library {
 		
 	}
 	
+	/**
+	 * Goes through library list and print the list of available books
+	 */
 	public void printAvailableBooks() {
-		/**
-		 * Goes through library list and print the list of available books
-		 */
 		if (bookCatalog.size() == 0){
 			System.out.println("No book in catalog ");
 		}else {
@@ -79,10 +94,13 @@ public class Library {
 			}
 		}
 	}
+	
+	/**
+	 * Pass a book title and allows you to return the book to the library
+	 * 
+	 * @param title is a string object of the books title
+	 */
 	public void returnBook(String Title) {
-		/**
-		 * Pass a book title and allows you to return the book to the library
-		 */
 		for (int i = 0; i < bookCatalog.size(); i++) {
 			//CHECKS IF THE BOOK inputed matches the one in the library
 		      if (bookCatalog.get(i).getTitle().equals(Title)) {
