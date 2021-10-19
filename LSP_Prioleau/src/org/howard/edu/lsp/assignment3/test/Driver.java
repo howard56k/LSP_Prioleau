@@ -14,6 +14,21 @@ public class Driver {
 	 */
 	public static void main(String[] args) throws IntegerSetException {
 		// TODO Auto-generated method stub
+		IntegerSet set11 = new IntegerSet();
+		IntegerSet set22 = new IntegerSet();
+		System.out.println();
+		set11 = new IntegerSet();
+		set11.add(1);
+		set11.add(2);
+
+		set22 = new IntegerSet();
+		set22.add(2);
+		set22.add(3);
+
+		set11.diff(set22);
+		System.out.println(set11.toString());
+		
+		
 		IntegerSet set1 = new IntegerSet();
 		set1.add(1);
 		set1.add(2);
@@ -82,6 +97,8 @@ public class Driver {
 		System.out.println("Is Set1 empty: " + set1.isEmpty());
 		System.out.println("Largest value in Set1 is: ");
 		set1.largest();
+		
+		
 
 	}
 
