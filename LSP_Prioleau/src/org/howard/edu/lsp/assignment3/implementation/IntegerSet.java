@@ -123,7 +123,17 @@ public class IntegerSet{
  			set.add(item);
 		}
  	}
-
+ 	
+ 	/**
+	 * Returns an Item from set by index
+	 * 
+	 * 
+	 * @param index is a int object that you returned
+ 	 * @return 
+	 */
+ 	public Integer get(int index) {
+ 		return set.get(index);
+ 	}
 
  	/**
  	 * Removes an item from the set or does nothing if not there
@@ -146,7 +156,10 @@ public class IntegerSet{
 	 * @param intSetb is a integerSet object
 	 */
 	public void union(IntegerSet intSetb){
-		set.addAll(intSetb.getArrayList());
+		for(int i = 0; i < set.size(); i++) {
+			intSetb.add(set.get(i));
+		}
+		set = intSetb.getArrayList();
 	}
 	
 
@@ -177,7 +190,10 @@ public class IntegerSet{
 		for (int i = 0; i < intSetBList.size(); i++) {
 			if(set.contains(intSetBList.get(i))) {
 				set.remove(set.indexOf(intSetBList.get(i)));
+			} else {
+				set.add(intSetBList.get(i));
 			}
+			
 		}
 	}
 	

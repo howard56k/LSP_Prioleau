@@ -34,7 +34,6 @@ public class IntegerSet{
 		return set.size();
 		// returns the length
 	}
-	
 	/**
 	 * Returns true if the 2 sets are equal, false otherwise;
 	 * Two sets are equal if they contain all of the same values in ANY order.
@@ -48,15 +47,11 @@ public class IntegerSet{
 			if(b.contains(set.get(i))){
 				found = true;
 				break;
-			}
-			//if found it will continue to the next item in the array
-			if (found){
-				continue;
-			}
+			}else{
 			//if not found it will break the look and return false
-			else {
 				return false;
 			}
+			
 		}
 		//Since it was able to run through without breaking means the sets are equal
 		return true;
@@ -69,7 +64,7 @@ public class IntegerSet{
 	 * @return a boolean if the set has the value given
 	 */
 	public boolean contains(int value){
-		return set.contains(set.indexOf(value));
+		return set.contains(value);
 	}
 	
 	/**
@@ -119,7 +114,7 @@ public class IntegerSet{
 	 * @param item is a int object that you want added to the set
 	 */
  	public void add(int item) {
- 		if(!(set.contains(item))){
+		if(!(set.contains(item))){
  			set.add(item);
 		}
  	}
@@ -190,7 +185,10 @@ public class IntegerSet{
 		for (int i = 0; i < intSetBList.size(); i++) {
 			if(set.contains(intSetBList.get(i))) {
 				set.remove(set.indexOf(intSetBList.get(i)));
+			} else {
+				set.add(intSetBList.get(i));
 			}
+			
 		}
 	}
 	
@@ -199,7 +197,7 @@ public class IntegerSet{
 	 * 
 	 * @return the ArrayList of the IntergerSet Object
 	 */
-	public ArrayList getArrayList() {
+	public ArrayList<Integer> getArrayList() {
 		return set;
 	}
 
