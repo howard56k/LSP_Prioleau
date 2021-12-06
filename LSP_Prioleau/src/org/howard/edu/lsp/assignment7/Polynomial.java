@@ -134,8 +134,45 @@ public class Polynomial {
 		}
 		return polyNom;
 	}
-	public int product(){
-		return 0;
+	/**
+	 * Allows you to multiply 2 Polynomials together
+	 * @param polyb is a Polynomial
+	 * @return the String of the product value
+	 */
+	public String product(Polynomial polyb) {
+		String productString = "";
+		Polynomial productPoly = new Polynomial();
+		for(int i = 0; i < polyList.size(); i++) {
+			for(int x = 0; x < polyb.getPolynomial().size(); x++) {
+				Term temp = polyList.get(i).product(polyb.getPolynomial().get(x));
+				productPoly.insert(temp.getCoefficient(), temp.getExponent());
+			}
+			
+		}
+		// SIMPLIFIES THE PRODUCT
+		Polynomial finProductPoly = new Polynomial();
+		ArrayList<Integer> indexToAvoid = new ArrayList<>();
+		for(int i = 0; i < productPoly.getPolynomial().size(); i++) {
+			boolean foundSame = false;
+			for(int x = 0; x < productPoly.getPolynomial().size(); x++) {
+				if((x != i) && !(indexToAvoid.contains(x))){	
+					if(productPoly.getPolynomial().get(i).getExponent() == productPoly.getPolynomial().get(x).getExponent()) {
+						indexToAvoid.add(i);
+						indexToAvoid.add(x);
+						Integer temp = (productPoly.getPolynomial().get(i).getCoefficient()) + (productPoly.getPolynomial().get(x).getCoefficient());
+						finProductPoly.insert(temp, productPoly.getPolynomial().get(i).getExponent());
+						foundSame = true;
+					}
+				}
+			}
+		}
+		for(int i = 0; i < productPoly.getPolynomial().size(); i++) {
+			if(!(indexToAvoid.contains(i))){
+				finProductPoly.insert(productPoly.getPolynomial().get(i).getCoefficient(), productPoly.getPolynomial().get(i).getExponent());
+			}
+		}
+		productString = finProductPoly.toString();
+		return productString;
 	}
 	
 }

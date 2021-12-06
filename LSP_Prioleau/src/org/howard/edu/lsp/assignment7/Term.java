@@ -59,4 +59,12 @@ public class Term {
 		}
 		
 	}
+	/**
+	 * Return the product of the multiplication of 2 Terms
+	 * @param b
+	 * @return the Term
+	 */
+	public Term product(Term b) {
+		return new Term((coeff*b.getCoefficient()), (exp+b.getExponent()));
+	}
 }
