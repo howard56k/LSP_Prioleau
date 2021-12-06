@@ -1,0 +1,11 @@
+P1;8;0;-4;1;5;3
+P2;6;5;7;1;-2;2;-4;0
+P1.insert(3,7)
+P2.insert(4,5)
+P1.delete(4,5)
+P1.delete(3,7)
+P2.delete(3,7)
+P2.delete(4,5)
+P1.reverse()
+P2.reverse()
+P2.product()
